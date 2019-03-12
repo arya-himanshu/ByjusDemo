@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SearchJobComponent } from './SearchJobContainer/search-job/search-job.component';
+import { JobSearchContainerComponent } from './JobSearch/job-search-container/job-search-container.component';
 const routes: Routes = [
-  { path: 'search-job', component: SearchJobComponent },
+  { path: 'search-job', component: JobSearchContainerComponent },
 ]
- @NgModule({
+@NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })

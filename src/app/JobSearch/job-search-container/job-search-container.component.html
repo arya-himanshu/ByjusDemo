@@ -1,0 +1,25 @@
+<div class="header-container">
+  <select [(ngModel)]="searchObj.location" (change)="searchSkill()">
+    <option *ngFor="let loca of locations | keyvalue">
+      {{loca.value}}
+    </option>
+  </select>
+  <select [(ngModel)]="searchObj.experience" (change)="searchSkill()">
+    <option *ngFor="let exp of experience | keyvalue">
+      {{exp.value}}
+    </option>
+  </select>
+  <input type="text" (keyup)="searchSkill()" [(ngModel)]="searchObj.skill">
+  <button type="button" (click)="searchSkill()">Search</button>
+</div>
+<p> Result Found : {{filterJobs.size}}</p>
+<div class="search-result_container">
+  <div class="card" *ngFor="let exp of filterJobs | keyvalue">
+    <p> ID: <span> {{exp.value._id}}</span></p>
+    <p> Title: <span> {{exp.value.title}}</span></p>
+    <p> Companyname: <span> {{exp.value.companyname}}</span></p>
+    <p> Experience: <span> {{exp.value.experience}}</span></p>
+    <p> Skills: <span> {{exp.value.skills}}</span></p>
+    <p> location: <span> {{exp.value.location}}</span></p>
+  </div>
+</div>
