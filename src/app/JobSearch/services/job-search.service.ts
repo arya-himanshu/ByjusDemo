@@ -52,8 +52,8 @@ export class JobSearchService {
 
 
 
-  /** Log a HeroService message with the MessageService */
+  /** Log a jobService message with the MessageService */
   private log(message: string) {
-    this.messageService.add(`HeroService: ${message}`);
+    this.messageService.add(`jobService: ${message}`);
   }
 }

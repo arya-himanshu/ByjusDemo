@@ -1,25 +1,49 @@
+<!-- this bit is the application header where user can select or search or sort -->
 <div class="header-container">
-  <select [(ngModel)]="searchObj.location" (change)="searchSkill()">
+  <select class="common" [(ngModel)]="searchObj.location" (change)="searchSkill(jobs)">
     <option *ngFor="let loca of locations | keyvalue">
       {{loca.value}}
     </option>
   </select>
-  <select [(ngModel)]="searchObj.experience" (change)="searchSkill()">
+  <select class="common " [(ngModel)]="searchObj.experience" (change)="searchSkill(jobs)">
     <option *ngFor="let exp of experience | keyvalue">
       {{exp.value}}
     </option>
   </select>
-  <input type="text" (keyup)="searchSkill()" [(ngModel)]="searchObj.skill">
-  <button type="button" (click)="searchSkill()">Search</button>
+  <input class="common " placeholder="Search Skills" type="text" (keyup)="searchSkill(jobs)"
+    [(ngModel)]="searchObj.skill">
+  <button class="common " type="button" (click)="sortLocation(filterJobs)">Sort By Location</button>
+  <button class="common " type="button" (click)="sortExperience(filterJobs)">Sort By Experience</button>
+  <button class="common " type="button" (click)="searchSkill(jobs)">Search</button>
 </div>
+<!-- end of header -->
+
+<!-- search result count -->
 <p> Result Found : {{filterJobs.size}}</p>
+
+<!-- displaying results -->
 <div class="search-result_container">
   <div class="card" *ngFor="let exp of filterJobs | keyvalue">
-    <p> ID: <span> {{exp.value._id}}</span></p>
-    <p> Title: <span> {{exp.value.title}}</span></p>
-    <p> Companyname: <span> {{exp.value.companyname}}</span></p>
-    <p> Experience: <span> {{exp.value.experience}}</span></p>
-    <p> Skills: <span> {{exp.value.skills}}</span></p>
-    <p> location: <span> {{exp.value.location}}</span></p>
+    <p> Title: <span *ngIf="exp.value.title.length > 0 "> {{exp.value.title}}</span>
+      <span *ngIf="exp.value.title.length == 0 "> N/A</span>
+    </p>
+    <p> Companyname: <span *ngIf="exp.value.companyname.length > 0 "> {{exp.value.companyname}}</span>
+      <span *ngIf="exp.value.companyname.length == 0 "> N/A</span>
+    </p>
+    <p> Experience: <span *ngIf="exp.value.experience.length > 0 "> {{exp.value.experience}}</span>
+      <span *ngIf="exp.value.experience.length == 0 "> N/A</span>
+    </p>
+    <p> Skills: <span *ngIf="exp.value.skills.length > 0 "> {{exp.value.skills}}</span>
+      <span *ngIf="exp.value.skills.length == 0 "> N/A</span>
+    </p>
+    <p> location: <span *ngIf="exp.value.location.length == 0 "> {{exp.value.location}}</span>
+      <span *ngIf="exp.value.location.length == 0 "> N/A</span>
+    </p>
   </div>
+</div>
+<!-- result end -->
+
+<div class="" *ngIf="filterJobs.size ==0"
+  style="height:120px; border:1px solid #79b6ea; width: 100% ; text-align: center;">
+  <p style="margin: 50px ; font-weight: 700"> No Jobs Found</p>
 </div>
