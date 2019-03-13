@@ -39,7 +39,6 @@ export class JobSearchContainerComponent implements OnInit {
       this.jobs = response.jobsfeed;
     this.experience.set("--Select Experience--", "Select Experience");
     this.locations.set("--Select Location--", "Select Location");
-
     for (let j of this.jobs) {
       this.setMap(j)
       this.experiencemanipulation(j);
@@ -108,10 +107,13 @@ export class JobSearchContainerComponent implements OnInit {
       localJobsFeed.push(value)
     });
     let localArray = [];
+    console.log(this.filterJobs)
     localArray = this.getSortedLocationResponse(localJobsFeed);
     for (let j of localArray) {
       this.setMap(j)
     }
+    console.log(this.filterJobs)
+
   }
   // location sorting
   getSortedLocationResponse(response) {
