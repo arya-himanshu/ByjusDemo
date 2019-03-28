@@ -24,6 +24,7 @@
 <!-- displaying results -->
 <div class="search-result_container">
   <div class="card" *ngFor="let exp of filterJobs | keyvalue">
+    <p>ID: {{exp.value._id}}</p>
     <p> Title: <span *ngIf="exp.value.title.length > 0 "> {{exp.value.title}}</span>
       <span *ngIf="exp.value.title.length == 0 "> N/A</span>
     </p>

@@ -1,0 +1,32 @@
+<div class="container">
+    <span class="selected-person" *ngFor="let seluser of selectedResult | keyvalue">
+        <img class="user-image" [src]='seluser.value.image'> {{seluser.value.name.slice(0,7)}}
+        <span (click)="removeUser(seluser)" style="margin-left: auto;">
+            <i class="material-icons close">
+                close
+            </i>
+        </span>
+    </span>
+    <input type="text" placeholder="Add User" class="search" [(ngModel)]="keyword" (keyup)="searchUser()">
+</div>
+<div class="" id="">
+    <ng-container *ngFor=" let res of mapResult">
+        <p class="res" (click)="selectUser(res)">
+            <span>
+                <img class="user-image" [src]='res.image'>
+            </span>{{res.name}}
+        </p>
+    </ng-container>
+</div>
+
+<div class="container">
+    <span class="selected-person" *ngFor="let tag of tags | keyvalue">
+        {{tag.value}}
+        <span style="margin-left: auto;">
+            <i class="material-icons close">
+                close
+            </i>
+        </span>
+    </span>
+    <input type="text" placeholder="Add User" class="search" [(ngModel)]="tag" (keyup.enter)="addTag()">
+</div>

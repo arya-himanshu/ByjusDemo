@@ -6,17 +6,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { JobSearchContainerComponent } from './JobSearch/job-search-container/job-search-container.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MultiSelectComponent } from './MultipleSearchSelect/multi-select/multi-select.component';
+import * as faker from 'faker';
+import { ClickOutSideDirective } from './click-out-side.directive'
 
 @NgModule({
   declarations: [
     AppComponent,
-    JobSearchContainerComponent
+    JobSearchContainerComponent,
+    MultiSelectComponent,
+    ClickOutSideDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
