@@ -46,3 +46,40 @@
     cursor: pointer;
     margin-left: auto;
 }
+
+.multi-select_container {
+    border: 1px solid #7d7d7d;
+    width: 698px;
+    min-height: 498px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+.header {
+    padding: 8px;
+    border-bottom: 1px solid #7d7d7d;
+    display: flex;
+}
+
+.search_keyword {
+    margin-left: auto;
+}
+
+.btn-cls {
+    padding: 4px 8px;
+    font-weight: 500;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px #EEE;
+    transition: box-shadow .1s linear;
+    background: white;
+    font-size: 12px;
+}
+
+.slider-container {}
+
+.back {
+    background: url(../../../assets/diagram-modern-java-gray-9a417697a51646e42df7e9d7f024709d.svg);
+    height: 238px;
+}

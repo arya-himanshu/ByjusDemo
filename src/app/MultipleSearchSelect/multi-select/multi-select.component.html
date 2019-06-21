@@ -18,7 +18,6 @@
         </p>
     </ng-container>
 </div>
-
 <div class="container">
     <span class="selected-person" *ngFor="let tag of tags | keyvalue">
         {{tag.value}}
@@ -29,4 +28,36 @@
         </span>
     </span>
     <input type="text" placeholder="Add User" class="search" [(ngModel)]="tag" (keyup.enter)="addTag()">
+</div>
+
+
+<div class="multi-select_container">
+    <div class="header">
+        <div class="select-unselect">
+            <button class="btn-cls">Select All</button> /
+            <button class="btn-cls">UnSelect</button>
+        </div>
+        <div class="search_keyword"><input type="text" placeholder="Typing Keyword..."></div>
+        {{seletedUserCount}}
+    </div>
+    <div>
+        <ng-container *ngFor="let item of manipilateArray">
+            <div class="users_list">
+                <input type="checkbox" (click)="selectAllUserInRow(item)" [(ngModel)]="item.allSelected">
+                <ng-container *ngFor="let list of item.userList">
+                    <button style="margin: 2px;" class="btn-cls"
+                        [ngStyle]="{'background-color':list.isSeleted === true ? '#397c39ba' : 'white' }"
+                        (click)="selectUserDynamic(list)">
+                        {{list.name}}</button>
+                </ng-container>
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+
+<div class="slider-container">
+    <div class="back">
+
+    </div>
 </div>
